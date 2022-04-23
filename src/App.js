@@ -1,17 +1,18 @@
-import logo from './logo.svg';
+//React Arrow Function Export Component rafce snipet para hacer las funciones
+
 import './App.css';
+import CartWidget from './Components/CartWidget';
+import Home from './Components/Home';
+import ItemListContainer from './Components/ItemListContainer';
+import NavBar from './Components/NavBar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Ya estoy acá (:
-        </p>
-        
-      </header>
-    </div>
+    <>
+      <NavBar></NavBar>
+      <ItemListContainer greeting='BIENVENIDO!'></ItemListContainer>
+      <Home></Home>
+    </>
   );
 }
 

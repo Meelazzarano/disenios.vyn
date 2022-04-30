@@ -18,7 +18,7 @@ const NavBar= () => {
             <a class="mr-5 hover:text-white">Dobles</a>
             <a class="mr-5 hover:text-white">Contacto</a>
           </nav>
-        <CartWidget></CartWidget>  
+        <CartWidget/>  
         </div>
       </header>
 

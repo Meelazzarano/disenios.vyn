@@ -9,9 +9,9 @@ import NavBar from './Components/NavBar';
 function App() {
   return (
     <>
-      <NavBar></NavBar>
-      <ItemListContainer greeting='BIENVENIDO!'></ItemListContainer>
-      <Home></Home>
+      <NavBar/>
+      <ItemListContainer greeting='BIENVENIDO!'/>
+      <Home/>
     </>
   );
 }

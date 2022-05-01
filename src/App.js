@@ -5,13 +5,15 @@ import CartWidget from './Components/CartWidget';
 import Home from './Components/Home';
 import ItemListContainer from './Components/ItemListContainer';
 import NavBar from './Components/NavBar';
+import ItemList from './Products/ItemList';
 
 function App() {
   return (
     <>
       <NavBar/>
-      <ItemListContainer greeting='BIENVENIDO!'/>
       <Home/>
+      <ItemListContainer greeting='BIENVENIDO!'/>
+
     </>
   );
 }

@@ -1,7 +1,6 @@
-import { products as productList} from './Items'
 
-export const getProducts = () => {
-    return new Promise ( (resolve, reject)=> {            
-        setTimeout (() => resolve(productList), 2000);
+export const getProducts = (x) => {
+    return new Promise ( (resolve)=> {            
+        setTimeout (() => resolve(x), 2000);
     });
 };

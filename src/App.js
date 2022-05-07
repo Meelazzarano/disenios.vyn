@@ -1,18 +1,24 @@
 //React Arrow Function Export Component rafce snipet para hacer las funciones
 
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import CartWidget from './Components/CartWidget';
 import Home from './Components/Home';
 import ItemListContainer from './Components/ItemListContainer';
+import ItemDetailContainer from './Components/ItemDetailContainer';
 import NavBar from './Components/NavBar';
 
 function App() {
   return (
     <>
+    <BrowserRouter>
       <NavBar/>
-      <Home/>
-      <ItemListContainer/>
-
+      <Routes>
+        <Route path='/' element={<Home/>} />
+        <Route path='/Productos' element={<ItemListContainer/>} />
+        <Route path='/Productos/:productoID' element={<ItemDetailContainer/>} />
+      </Routes>
+    </BrowserRouter>
+      
     </>
   );
 }

@@ -5,30 +5,28 @@ import { products as productList} from '../Products/Items'
 
 const ItemDetailContainer = () => {
     
-  const { productoID } = useParams ()
+  const { productoTitle } = useParams ()
   const [producto, setProducto] = useState ( {} )
 
     useEffect( () => {
 
         (async () => {
             const itemDescrip = await getProductDetail()
-            console.log (itemDescrip)
             setProducto(itemDescrip)
         })()
     
-    }, [])
+    }, )
 
     const getProductDetail = () => {
         return new Promise ( (resolve) => {
             setTimeout ( () => {
-                resolve (productList.find (p => p.id == productoID))
+                resolve (productList.find (p => p.title === productoTitle))
             }, 2000);
         })
     }
 
     return (
         <>
-        {/* <div>{producto.title}</div> */}
         <ItemDetail producto={producto} />
         </>
     )

@@ -1,7 +1,7 @@
-import { Link, NavLink } from "react-router-dom"
+import { Link } from "react-router-dom"
 import CartWidget from "./CartWidget"
 
-const NavBar= () => {
+const NavBar= ( {productos} ) => {
   return (
     <>
       <header className="text-gray-400 bg-gray-900 body-font">
@@ -15,6 +15,8 @@ const NavBar= () => {
           <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700	flex flex-wrap items-center text-base justify-center">
             <Link to='' className="mr-5 hover:text-white">Galeria</Link>
             <Link to='/Productos' className="mr-5 hover:text-white">Productos</Link>
+            <Link to='/Produc' className="mr-5 hover:text-white">Cortinas</Link>
+            <Link to='/' className="mr-5 hover:text-white">Barrales</Link>
             <Link to='' className="mr-5 hover:text-white">Contacto</Link>
           </nav>
         <CartWidget/>  

@@ -6,7 +6,7 @@ import { products as productList} from '../Products/Items'
 const ItemDetailContainer = () => {
     
   const { productoTitle } = useParams ()
-  const [producto, setProducto] = useState ( {} )
+  const [producto, setProducto] = useState ( null )
 
     useEffect( () => {
 
@@ -27,7 +27,10 @@ const ItemDetailContainer = () => {
 
     return (
         <>
-        <ItemDetail producto={producto} />
+        { producto?
+            <ItemDetail producto={producto} />
+            : <p> Cargando detalle... </p>
+        }
         </>
     )
 }

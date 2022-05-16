@@ -6,43 +6,29 @@ import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
 
-
-
-  const [products, setProducts] = useState( {} )
+  const { categoryID } = useParams ()  
+  const [products, setProducts] = useState( )
     
   useEffect(() => {
 
       getProducts(productList).then ( (result)=> {
-          // console.log(result)
+        setProducts (
+          categoryID ? 
+              result.filter ( p => p.category === categoryID) 
+              : result)
       }).catch ( (err) => {
           console.log ('Hubo un error en la promesa',err);
       })
-  }, [products])
+      
+  }, [categoryID] )
   
-
-//   const { categoryID } = useParams ()  
-//   const [producto, setProducto] = useState ( {} )
-
-//   useEffect( () => {
-
-//     (async () => {
-//         const itemDescrip = await getProductDetail()
-//         setProducto(itemDescrip)
-//     })()
-
-// }, [])
-
-// const getProductDetail = () => {
-//     return new Promise ( (resolve) => {
-//         setTimeout ( () => {
-//             resolve (products.filter (p => p.category === categoryID))
-//         }, 2000);
-//     })
-// }
 
   return (
     <>
-    <ItemList/>
+    { products?
+        <ItemList products={products}/>
+        : <p> Cargando productos... </p>
+    }
     </>
   )
 }

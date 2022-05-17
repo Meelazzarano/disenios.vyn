@@ -22,3 +22,9 @@ code {
 h1 {
   padding-bottom: 20px;
 }
+
+footer.fixed {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

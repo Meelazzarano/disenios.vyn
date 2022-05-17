@@ -6,18 +6,20 @@ import Home from './Components/Home';
 import ItemListContainer from './Components/ItemListContainer';
 import ItemDetailContainer from './Components/ItemDetailContainer';
 import NavBar from './Components/NavBar';
+import Footer from './Components/Footer';
 
 function App() {
   return (
     <>
     <BrowserRouter>
-      <NavBar/>
+      <NavBar />
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/Productos' element={<ItemListContainer/>} />
         <Route path='/Categorias/:categoryID' element={<ItemListContainer/>} />
         <Route path='/Productos/:productoTitle' element={<ItemDetailContainer/>} />
       </Routes>
+      <Footer />
     </BrowserRouter>
       
     </>

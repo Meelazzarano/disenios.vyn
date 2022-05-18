@@ -10,7 +10,7 @@ const Card = ({item}) => {
             <div className="mt-4">
                 <h2 className="text-white title-font text-lg font-medium">{item.title}</h2>
             </div>
-            <Link to={`/Productos/${item.title}`} className="inline-flex text-gray-400 bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-700 rounded text-lg">Ver detalles</Link>
+            <Link to={`/Productos/${item.title}`} className="my-6 inline-flex text-gray-400 bg-gray-800 border-0 py-1 px-6 focus:outline-none hover:bg-gray-700 rounded text-lg">Ver detalles</Link>
         </div>
     </>
   )

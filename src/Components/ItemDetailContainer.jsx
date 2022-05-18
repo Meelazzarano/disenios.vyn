@@ -22,7 +22,7 @@ const ItemDetailContainer = () => {
         return new Promise ( (resolve) => {
             setTimeout ( () => {
                 resolve (productList.find (p => p.title === productoTitle))
-            }, 2000);
+            }, 1000);
         })
     }
 

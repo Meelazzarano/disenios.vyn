@@ -28,3 +28,7 @@ footer.fixed {
   bottom: 0;
   width: 100%;
 }
+
+section {
+  padding-bottom: 5rem;
+}

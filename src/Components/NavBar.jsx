@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom"
+import { useCartContext } from "../Context/CartContextProvider";
 import CartWidget from "./CartWidget"
 
-const NavBar= ( {productos} ) => {
+const NavBar= () => {
+  
+  const {totalCount} = useCartContext ();
+  
   return (
     <>
       <header className="text-gray-400 bg-gray-900 body-font">
@@ -19,7 +23,8 @@ const NavBar= ( {productos} ) => {
             <Link to='/Categorias/Barral' className="mr-5 hover:text-white">Barrales</Link>
             <Link to='' className="mr-5 hover:text-white">Contacto</Link>
           </nav>
-        <CartWidget/>  
+        {totalCount()!==0 && <CartWidget/>}
+          
         </div>
       </header>
 

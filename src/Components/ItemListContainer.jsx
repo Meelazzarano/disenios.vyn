@@ -1,8 +1,7 @@
 import ItemList from "../Components/ItemList"
 import { useEffect, useState } from 'react'
-import { getProducts } from "../Products/getProducts";
-import { products as productList} from '../Products/Items'
 import { useParams } from "react-router-dom";
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 
 const ItemListContainer = () => {
 
@@ -10,18 +9,27 @@ const ItemListContainer = () => {
   const [products, setProducts] = useState( )
     
   useEffect(() => {
-
-      getProducts(productList).then ( (result)=> {
-        setProducts (
-          categoryID ? 
-              result.filter ( p => p.category === categoryID) 
-              : result)
-      }).catch ( (err) => {
-          console.log ('Hubo un error en la promesa',err);
-      })
-      
+    getDBItems()      
   }, [categoryID] )
   
+  const getDBItems = () => {
+    const db = getFirestore()
+
+    const q = query ( collection (db, 'Items'), where ('stock','>', 0))
+
+    getDocs (q).then ((snapshot) => {
+      if (snapshot!==0) {
+        const result = snapshot.docs.map ( i => ( {'id': i.id, ...i.data()}) )
+
+        setProducts (
+          categoryID ?
+            result.filter (p => p.category === categoryID)
+            : result
+        )
+      }
+    })
+  }
+
 
   return (
     <>

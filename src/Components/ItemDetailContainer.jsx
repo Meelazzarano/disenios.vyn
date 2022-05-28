@@ -1,34 +1,31 @@
 import ItemDetail from "./ItemDetail"
 import { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
-import { products as productList} from '../Products/Items'
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
     
-  const { productoTitle } = useParams ()
-  
-  const [producto, setProducto] = useState ( null )
+  const { id } = useParams ()
+  const [producto, setProducto] = useState ( )
 
     useEffect( () => {
+        getDBProduct()
+    }, [id])
 
-        (async () => {
-            const itemDescrip = await getProductDetail()
-            setProducto(itemDescrip)
-        })()
-    
-    }, )
+    const getDBProduct = () => {
+        const db = getFirestore()
 
-    const getProductDetail = () => {
-        return new Promise ( (resolve) => {
-            setTimeout ( () => {
-                resolve (productList.find (p => p.title === productoTitle))
-            }, 1000);
+        getDoc(doc (db, "Items", id)). then((snapshot)=> {
+            if (snapshot!==0) {
+                setProducto ( {id, ...snapshot.data()} )
+            }
         })
+    
     }
 
     return (
         <>
-        { producto?
+        { producto ?
             <ItemDetail producto={producto} />
             : <p> Cargando detalle... </p>
         }

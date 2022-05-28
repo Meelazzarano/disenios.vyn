@@ -12,23 +12,22 @@ const ItemListContainer = () => {
     getDBItems()      
   }, [categoryID] )
   
-  const getDBItems = () => {
+    const getDBItems = () => {
     const db = getFirestore()
 
-    const q = query ( collection (db, 'Items'), where ('stock','>', 0))
+      getDocs (
+        categoryID ?
+          query (collection (db, 'Items'), where ('category','==', categoryID))
+          : collection (db, 'Items')
+        ).then ((snapshot) => {
+          if (snapshot!==0) {
+            const result = snapshot.docs.map ( i => ( {'id': i.id, ...i.data()}) )
+            setProducts (result)
+          }
+        })
 
-    getDocs (q).then ((snapshot) => {
-      if (snapshot!==0) {
-        const result = snapshot.docs.map ( i => ( {'id': i.id, ...i.data()}) )
+    }
 
-        setProducts (
-          categoryID ?
-            result.filter (p => p.category === categoryID)
-            : result
-        )
-      }
-    })
-  }
 
 
   return (

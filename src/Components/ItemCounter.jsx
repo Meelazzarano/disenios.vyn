@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 
 const ItemCounter = ({onAdd}) => {
 
-
-
   const [count, setCount] = useState(1);
 
   const handleSubstract = () => {

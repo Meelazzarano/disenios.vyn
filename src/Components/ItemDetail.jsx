@@ -28,7 +28,7 @@ const ItemDetail = ( {producto} ) => {
                     <div className="mb-6 p-4 title-font font-medium text-2xl text-white'">${producto.price}</div>
                     <div className="block">
                         {   cartQuantity ===0 ?
-                            <ItemCounter onAdd={handleOnAdd} />
+                            <ItemCounter onAdd={handleOnAdd}/>
                             : <Link to='/Cart' className="inline-block m-3 text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded">Terminar la compra</Link>
                         }
                         <Link to='/Productos' className="inline-block mx-3 my-10 text-white text-gray-400 bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-700 rounded">Volver a Productos</Link>

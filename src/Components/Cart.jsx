@@ -14,7 +14,7 @@ const Cart = () => {
 
         { cartList.length > 0 ?
             <>
-              <p className="m-10 text-xl"> Total: ${totalPrice()} </p>
+              <p className="m-10 text-xl"> Total: $ {totalPrice()} </p>
               <button className="block m-10 text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded" onClick={clearCart}>Vaciar carrito</button>
             </>
           : <>

@@ -10,7 +10,7 @@ const ItemListContainer = () => {
     
   useEffect(() => {
     getDBItems()      
-  }, [categoryID] )
+  }, [categoryID])
   
     const getDBItems = () => {
     const db = getFirestore()
@@ -27,7 +27,6 @@ const ItemListContainer = () => {
         })
 
     }
-
 
 
   return (

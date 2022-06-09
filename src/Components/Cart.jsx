@@ -16,6 +16,7 @@ const Cart = () => {
             <>
               <p className="m-10 text-xl"> Total: $ {totalPrice()} </p>
               <button className="block m-10 text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded" onClick={clearCart}>Vaciar carrito</button>
+              <Link to='/Form'className="w-fit block m-10 text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded">Finalizar Orden</Link>
             </>
           : <>
               <p className="m-10"> Aún no hay artículos en el carrito </p>

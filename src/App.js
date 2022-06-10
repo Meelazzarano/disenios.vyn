@@ -11,6 +11,7 @@ import CartContextProvider from './Context/CartContextProvider';
 import Cart from './Components/Cart';
 import Form from './Components/Form';
 import FormContextProvider from './Context/FormContextProvider';
+import Instructions from './Components/Instructions';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Routes>
           <Route path='/Cart' element={<Cart/>} />
           <Route path='/' element={<Home/>} />
+          <Route path='/ComoTrabajamos' element={<Instructions/>} />
           <Route path='/Productos' element={<ItemListContainer/>} />
           <Route path='/Categorias/:categoryID' element={<ItemListContainer/>} />
           <Route path='/Productos/:id' element={<ItemDetailContainer/>} />

@@ -15,7 +15,7 @@ const ItemDetailContainer = () => {
     const getDBProduct = () => {
         const db = getFirestore()
 
-        getDoc(doc (db, "Items", id)). then((snapshot)=> {
+        getDoc(doc (db, "Items", id)).then((snapshot)=> {
             if (snapshot!==0) {
                 setProducto ( {id, ...snapshot.data()} )
             }

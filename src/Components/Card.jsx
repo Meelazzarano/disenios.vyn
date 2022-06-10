@@ -4,7 +4,7 @@ const Card = ({item}) => {
   return (
     <>
         <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-            <a href="/#" className="block relative h-48 rounded overflow-hidden">                        
+            <a href={`/Productos/${item.id}`} className="block relative h-48 rounded overflow-hidden">                        
                 <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={item.pictureURL} />
             </a>
             <div className="mt-4">

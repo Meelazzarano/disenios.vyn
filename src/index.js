@@ -8,12 +8,12 @@ import App from './App';
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAnubK_B7bCqlsEv9rYVPVW2P8OZEt5S-I",
-  authDomain: "disenios-vyn.firebaseapp.com",
-  projectId: "disenios-vyn",
-  storageBucket: "disenios-vyn.appspot.com",
-  messagingSenderId: "462167275539",
-  appId: "1:462167275539:web:e0ce0b5ba1de99b7d5e7e6"
+  apiKey: process.env.REACT_APP_APIKEY ,
+  authDomain: process.env.REACT_APP_AUTHDOMAIN ,
+  projectId: process.env.REACT_APP_PROJECTID ,
+  storageBucket: process.env.REACT_APP_STORAGEBUCKET ,
+  messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID ,
+  appId: process.env.REACT_APP_APPI
 };
 
 const app = initializeApp(firebaseConfig);

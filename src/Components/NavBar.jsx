@@ -17,10 +17,10 @@ const NavBar= () => {
             <span className="ml-3 text-xl">Diseños VyN</span>
           </Link>
           <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700	flex flex-wrap items-center text-base justify-center">
-            <Link to='/ComoTrabajamos' className="mr-5 hover:text-white">Cómo trabajamos</Link>
-            <Link to='/Productos' className="mr-5 hover:text-white">Productos</Link>
-            <Link to='/Categorias/Cortina' className="mr-5 hover:text-white">Cortinas</Link>
-            <Link to='/Categorias/Barral' className="mr-5 hover:text-white">Barrales</Link>
+            <Link to='/ComoTrabajamos' className="mx-3 hover:text-white">Cómo trabajamos</Link>
+            <Link to='/Productos' className="mx-3 hover:text-white">Productos</Link>
+            <Link to='/Categorias/Cortina' className="mx-3 hover:text-white">Cortinas</Link>
+            <Link to='/Categorias/Barral' className="mx-3 hover:text-white">Barrales</Link>
           </nav>
         {totalCount()!==0 && <CartWidget/>}
           

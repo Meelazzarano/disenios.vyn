@@ -1,6 +1,6 @@
 const Instructions = () => {
   return (
-    <section className="text-gray-400 bg-gray-900 body-font">
+    <section className="p-5 text-gray-400 bg-gray-900 body-font">
         <div className="container py-14 mx-auto">
           <div className="xl:w-1/2 lg:w-3/4 w-full mx-auto text-justify">          
               <p className="my-3 leading-relaxed text-lg">Aquí podrás ver nuestra oferta de productos: <span className="font-bold">cortinas de diferentes telas y entramados, barrales, estampados personalizados</span>. No sólo te ofrecemos la cortina que estás buscando, sino que también hacemos la colocación. Como quien dice: de principio a fin.</p>

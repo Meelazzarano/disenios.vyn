@@ -24,7 +24,7 @@ const ItemDetail = ( {producto} ) => {
                 <img alt="ecommerce" className="lg:w-1/2 w-300px object-cover object-center rounded" src={producto.pictureURL}></img>
                 <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                     <h1 className="text-white text-3xl title-font font-medium mb-1">{producto.title}</h1>
-                    <p className="leading-relaxed mb-6">{producto.descrip}</p>
+                    <p className="leading-relaxed mb-6 text-justify">{producto.descrip}</p>
                     <div className="mb-6 p-4 title-font font-medium text-2xl text-white'">${producto.price}</div>
                     <div className="block">
                         {   cartQuantity ===0 ?

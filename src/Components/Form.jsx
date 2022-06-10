@@ -1,10 +1,11 @@
 import { useFormContext } from "../Context/FormContextProvider"
+import { SuccessMessageOrder } from "./SuccessMessage";
 
 
 
 const Form = () => {
 
-    const { buyer, validateForm, onSubmit, onInputChange } = useFormContext();
+    const { buyer, validateForm, onSubmit, onInputChange, envio } = useFormContext();
 
 return (
    
@@ -18,7 +19,6 @@ return (
         <div className="flex flex-wrap -m-2">         
             {
             Object.keys(buyer).map( key =>{
-                console.log(key)
                 return (
                     
                     <div className="p-2 w-full">
@@ -39,6 +39,8 @@ return (
                     className="flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"
                 >Enviar orden</button>
             </div>
+
+            {   envio!==0 && <SuccessMessageOrder/>   }
         </div>
         </div>
     </div>

@@ -1,6 +1,7 @@
+import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { createContext, useContext, useState } from "react";
 import { useCartContext } from "./CartContextProvider";
-import { useOrderContext } from "./OrderContextProvider";
+
 
 
 
@@ -22,8 +23,9 @@ const FormContextProvider = ( {children} ) => {
         Teléfono: ""
       });
 
-    const { cartList } = useCartContext();
-    const { saveOrderHandler } = useOrderContext();
+    const [envio, setEnvio] = useState(0);
+
+    const { cartList, totalPrice, clearCart } = useCartContext();
 
     function onInputChange(event){
         const target = event.target;
@@ -36,20 +38,27 @@ const FormContextProvider = ( {children} ) => {
         })
     }
 
+    const saveOrderHandler = () => {    
+        const order = {
+            buyer: buyer,
+            cart: cartList,
+            total: totalPrice()
+        }
+        saveOrderFirestore (order)
+    }
+
+    const saveOrderFirestore = (order) => {
+        const orderCollection = collection (getFirestore(), 'Ordenes')
+        addDoc (orderCollection, order).then ()      
+    }
+
     function onSubmit() {
         saveOrderHandler();
-        console.log("Finalizada la compra",buyer, cartList);
+        setEnvio(1);
+        setBuyer ({ Nombre:"", Email:"", Teléfono:""})
+        clearCart();
     }
     
-// ********** PROBLEMAS ******************
-// No llega nada a Firestore
-// Buyer undefined
-// No me toma el total de la cotización
-// Renderiza mil veces el form al completar los campos
-// Warning de useEffect. Qué paso??????
-
-
-
 
     function validateForm(){  
         let formIsComplete = Object.keys(buyer) 
@@ -60,7 +69,7 @@ const FormContextProvider = ( {children} ) => {
 
 // *********************** Scope - Custom Provider ***********************
     return (
-        <FormContext.Provider value={ {buyer, onInputChange, onSubmit, validateForm} }>
+        <FormContext.Provider value={ {buyer, onInputChange, onSubmit, validateForm, envio} }>
              {children} 
         </FormContext.Provider>  
     )

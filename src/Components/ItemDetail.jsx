@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import ItemCounter from './ItemCounter'
 import { useCartContext } from '../Context/CartContextProvider'
 import { useState } from 'react';
-import SuccessMessage from './SuccessMessage';
+import { SuccessMessage } from './SuccessMessage';
 
 
 const ItemDetail = ( {producto} ) => {

@@ -11,13 +11,11 @@ import CartContextProvider from './Context/CartContextProvider';
 import Cart from './Components/Cart';
 import Form from './Components/Form';
 import FormContextProvider from './Context/FormContextProvider';
-import OrderContextProvider from './Context/OrderContextProvider';
 
 function App() {
   return (
     <>
     <CartContextProvider>
-    <OrderContextProvider>
     <FormContextProvider>
       <BrowserRouter>
         <NavBar />
@@ -32,7 +30,6 @@ function App() {
         <Footer />
       </BrowserRouter>
     </FormContextProvider>
-    </OrderContextProvider>
     </CartContextProvider>    
     </>
   );
